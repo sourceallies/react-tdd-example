@@ -3,7 +3,10 @@ var React = require('react/addons');
 var Todo = React.createClass({
 	render : function () {
 		return (
-			<div>&bull;&nbsp;{this.props.text}</div>
+			<div>
+				<span>&bull;&nbsp;{this.props.text}</span>
+				<button onClick={this.props.remove} ref='removeButton'>Remove</button>
+			</div>
 		);
 	}
 });

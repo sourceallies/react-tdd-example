@@ -11,12 +11,17 @@ var TodoList = React.createClass({
 		items.push(text);
 		this.setState({items : items});
 	},
+	remove : function (pos) {
+		var items = this.state.items;
+		items.splice(pos, 1);
+		this.setState({items : items});
+	},
 	render : function () {
 		var items = this.state.items.map(function (item, i) {
 			return (
-				<Todo key={i} text={item}/>
+				<Todo key={i} text={item} remove={this.remove.bind(null, i)}/>
 			);
-		});
+		}.bind(this));
 		return (
 			<div>
 				<h1>To-do List</h1>
