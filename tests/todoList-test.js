@@ -33,4 +33,20 @@ describe('TodoList', function () {
 		expect(buttons.length).toEqual(1);
 	});
 
+	it('should add new list items when the button is pressed', function () {
+		var todoList = TestUtils.renderIntoDocument(<TodoList/>);
+		var button = React.findDOMNode(todoList.refs.button);
+		var textField = React.findDOMNode(todoList.refs.textField);
+		var expected = ['foo'];
+		textField.value = 'foo';
+		TestUtils.Simulate.click(button);
+		expect(JSON.stringify(todoList.state.items)).toEqual(JSON.stringify(expected));
+		textField.value = 'bar';
+		TestUtils.Simulate.click(button);
+		expected.push('bar');
+		expect(JSON.stringify(todoList.state.items)).toEqual(JSON.stringify(expected));
+		var listItems = TestUtils.scryRenderedDOMComponentsWithTag(todoList, 'li');
+		expect(listItems.length).toEqual(2);
+	});
+
 });
