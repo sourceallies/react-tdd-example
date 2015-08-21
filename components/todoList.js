@@ -1,4 +1,5 @@
-var React = require('react/addons');
+var React = require('react/addons'),
+	Todo = require('./todo.js');
 
 var TodoList = React.createClass({
 	getInitialState : function () {
@@ -13,7 +14,7 @@ var TodoList = React.createClass({
 	render : function () {
 		var items = this.state.items.map(function (item, i) {
 			return (
-				<li key={i}>{item}</li>
+				<Todo key={i} text={item}/>
 			);
 		});
 		return (
