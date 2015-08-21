@@ -1,5 +1,6 @@
 var React = require('react/addons'),
     TodoList = require('../components/todoList.js'),
+    Todo = require('../components/todo.js'),
     TestUtils = React.addons.TestUtils;
 
 describe('TodoList', function () {
@@ -21,13 +22,13 @@ describe('TodoList', function () {
 		expect(headers.length).toEqual(1);
 	});
 
-	it('contains an input for naming a new list item', function () {
+	it('contains an input for naming a new Todo', function () {
 		var todoList = TestUtils.renderIntoDocument(<TodoList/>);
 		var inputs = TestUtils.scryRenderedDOMComponentsWithTag(todoList, 'input');
 		expect(inputs.length).toEqual(1);
 	});
 
-	it('contains a button for adding a new list item', function () {
+	it('contains a button for adding a new Todo', function () {
 		var todoList = TestUtils.renderIntoDocument(<TodoList/>);
 		var buttons = TestUtils.scryRenderedDOMComponentsWithTag(todoList, 'button');
 		expect(buttons.length).toEqual(1);
@@ -45,7 +46,7 @@ describe('TodoList', function () {
 		TestUtils.Simulate.click(button);
 		expected.push('bar');
 		expect(JSON.stringify(todoList.state.items)).toEqual(JSON.stringify(expected));
-		var listItems = TestUtils.scryRenderedDOMComponentsWithTag(todoList, 'li');
+		var listItems = TestUtils.scryRenderedComponentsWithType(todoList, Todo);
 		expect(listItems.length).toEqual(2);
 	});
 
