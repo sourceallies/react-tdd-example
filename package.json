@@ -1,0 +1,47 @@
+{
+  "name": "react-tdd-example",
+  "version": "1.0.0",
+  "description": "A TDD example using React, tested using Karma, PhantomJS, Jasmine, and Sinon",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sourceallies/react-tdd-example.git"
+  },
+  "keywords": [
+    "react",
+    "tdd"
+  ],
+  "author": "Michael Parker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sourceallies/react-tdd-example/issues"
+  },
+  "homepage": "https://github.com/sourceallies/react-tdd-example#readme",
+  "dependencies": {
+    "react": "^0.13.3",
+    "react-tools": "^0.13.3"
+  },
+  "devDependencies": {
+    "browserify": "^10.2.1",
+    "gulp": "^3.8.11",
+    "gulp-streamify": "0.0.5",
+    "gulp-uglify": "~1.1.0",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.12.33",
+    "karma-browserify": "^4.2.1",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-cli": "0.0.4",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-phantomjs-shim": "^1.0.0",
+    "karma-sinon": "^1.0.4",
+    "karma-spec-reporter": "0.0.20",
+    "reactify": "^1.1.1",
+    "sinon": "^1.15.3",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
