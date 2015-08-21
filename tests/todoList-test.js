@@ -34,7 +34,7 @@ describe('TodoList', function () {
 		expect(buttons.length).toEqual(1);
 	});
 
-	it('should add new list items when the button is pressed', function () {
+	it('should add new Todos when the \'add\' button is pressed', function () {
 		var todoList = TestUtils.renderIntoDocument(<TodoList/>);
 		var button = React.findDOMNode(todoList.refs.button);
 		var textField = React.findDOMNode(todoList.refs.textField);
@@ -48,6 +48,16 @@ describe('TodoList', function () {
 		expect(JSON.stringify(todoList.state.items)).toEqual(JSON.stringify(expected));
 		var listItems = TestUtils.scryRenderedComponentsWithType(todoList, Todo);
 		expect(listItems.length).toEqual(2);
+	});
+
+	it('should remove a Todo when its \'remove\' button is pressed', function () {
+		var todoList = TestUtils.renderIntoDocument(<TodoList/>);
+		todoList.setState({items : ['foo']});
+		var todo = TestUtils.findRenderedComponentWithType(todoList, Todo);
+		var removeButton = React.findDOMNode(todo.refs.removeButton);
+		TestUtils.Simulate.click(removeButton);
+		var todos = TestUtils.scryRenderedComponentsWithType(todoList, Todo);
+		expect(todos.length).toEqual(0);
 	});
 
 });
