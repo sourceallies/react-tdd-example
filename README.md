@@ -15,3 +15,15 @@ To run tests:
     npm test
     
 Each "feature" is added in two separate commits.  The first commit, prefixed with "Failing", adds the failing test for the feature.  The second commit, prefixed with "Passing", implements the feature, causing the previously failing test to pass.
+
+To easily step through commits, use a script like this:
+
+    #!/bin/bash
+    git checkout master
+    git checkout $1
+    
+And specify the commit hash like so:
+
+    ./checkout.sh HASH
+    
+The list of commit hashes can be found [here](https://github.com/sourceallies/react-tdd-example/commits/master)
